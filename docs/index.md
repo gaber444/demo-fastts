@@ -15,7 +15,7 @@
 
 Prebuilt demo wheels are available here:
 
-[Download FastTS releases](https://github.com/gaber444/FastTS/releases)
+[Download FastTS releases](https://github.com/gaber444/demo-fastts/releases)
 
 ## Example
 
