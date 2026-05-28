@@ -98,7 +98,7 @@ If you're working on performance-heavy workloads or want to discuss optimization
 📧 Email: benedik.benedik500@gmail.com
 
 💼 LinkedIn:
-linkedin.com/in/gaber444
+https://www.linkedin.com/in/gaber-benedik-b20a8028b/
 
 🐙 GitHub:
 github.com/gaber444
