@@ -29,7 +29,7 @@ jobs:
 
       - name: Build wheel
         run: |
-          python -m build --wheel --no-isolation
+          python -m build --wheel
 
       - name: Upload wheel to GitHub Release
         if: github.event_name == 'release'
