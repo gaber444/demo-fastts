@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+  "scikit-build-core>=0.10",
+  "pybind11>=2.11",
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "fastts_demo"
+version = "0.1.0"
+description = "Integration of C++ in Python for faster calculations"
+requires-python = ">=3.8"
+authors = [
+  { name = "Gaber Benedik", email = "benedik.benedik500@gmail.com" }
+]
+
+[project.urls]
+Homepage = "https://github.com/gaber444/fastts-demo"
+
+[tool.scikit-build]
+minimum-version = "0.10"
+build.verbose = true
+
+[tool.scikit-build.wheel]
+expand-macos-universal-tags = true
+# is a Python package that must go into the wheel.
+packages = ["fastts_demo"]
