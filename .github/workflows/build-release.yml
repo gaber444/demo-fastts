@@ -6,13 +6,17 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [3.11]
+        python-version: ["3.11"]
 
     steps:
       - name: Checkout repository
@@ -31,6 +35,10 @@ jobs:
       - name: Build wheel
         run: |
           python -m build --wheel
+
+      - name: List dist files
+        run: |
+          ls dist
 
       - name: Upload wheel to GitHub Release
         if: github.event_name == 'release'
