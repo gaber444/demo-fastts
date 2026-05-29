@@ -15,7 +15,7 @@ py::array_t<double> rolling_mean(DoubleArray data, std::size_t window) {
   const double *data_ptr = data.data();
   double *result_ptr = result.mutable_data();
   {
-    py::gil_scoped_release release; // Release GIL for CPU-bound computation
+    py::gil_scoped_release release;
     double window_sum = 0.0;
     const double inv_window = 1.0 / static_cast<double>(window);
 
