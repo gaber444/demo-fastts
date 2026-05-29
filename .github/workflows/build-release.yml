@@ -42,10 +42,24 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
 
       - name: List wheel files
+        shell: bash
         run: |
           ls wheelhouse
 
-      - name: Upload wheels to GitHub Release
+      - name: Package wheels by OS
+        shell: bash
+        run: |
+          mkdir -p release-assets
+
+          if [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+            zip -j release-assets/fastts-macos-wheels.zip wheelhouse/*.whl
+          elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            7z a release-assets/fastts-windows-wheels.zip wheelhouse/*.whl
+          elif [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+            zip -j release-assets/fastts-ubuntu-wheels.zip wheelhouse/*.whl
+          fi
+
+      - name: Upload OS wheel bundle to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: wheelhouse/*.whl
+          files: release-assets/*.zip
